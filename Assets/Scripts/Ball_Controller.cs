@@ -9,6 +9,8 @@ using UnityEngine;
 
 public class Ball_Controller : MonoBehaviour {
 
+	public GameObject particle;
+
 	[SerializeField]
 	private float speed;
 	private float speed_drop = -25.0f;
@@ -64,6 +66,16 @@ public class Ball_Controller : MonoBehaviour {
 			rb.velocity = new Vector3 (speed, 0, 0);
 		} else if (rb.velocity.x > 0) {
 			rb.velocity = new Vector3 (0, 0, speed);
+		}
+	}
+
+	void OnTriggerEnter(Collider other){
+		if (other.gameObject.tag == "Diamond") {
+			GameObject part = Instantiate (particle, other.gameObject.transform.position, Quaternion.identity) as GameObject;
+			Destroy (part, 1.0f);
+
+			Destroy (other.gameObject);
+
 		}
 	}
 }

@@ -10,6 +10,7 @@ using UnityEngine;
 public class Platform_Spawner : MonoBehaviour {
 
 	public GameObject platform;
+	public GameObject diamond;
 
 	Vector3 lastPos;
 
@@ -41,9 +42,6 @@ public class Platform_Spawner : MonoBehaviour {
 	}
 
 	void Spawn_Platforms(){
-
-
-
 		int rand = Random.Range (0, 6);
 
 		if (rand < 3) {
@@ -60,6 +58,11 @@ public class Platform_Spawner : MonoBehaviour {
 		lastPos = pos;
 		//No rotation
 		Instantiate (platform, pos, Quaternion.identity);
+
+		int rand = Random.Range (0, 4);
+		if (rand < 1) {
+ 			Instantiate (diamond, new Vector3(pos.x, pos.y + 1.0f, pos.z), diamond.transform.rotation);
+		}
 	}
 
 	void Spawn_Z(){
@@ -69,5 +72,10 @@ public class Platform_Spawner : MonoBehaviour {
 		lastPos = pos;
 		//No rotation
 		Instantiate (platform, pos, Quaternion.identity);
+
+		int rand = Random.Range (0, 4);
+		if (rand < 1) {
+			Instantiate (diamond, new Vector3(pos.x, pos.y + 1.0f, pos.z), diamond.transform.rotation);
+		}
 	}
 }
