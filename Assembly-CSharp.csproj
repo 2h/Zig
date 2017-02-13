@@ -48,8 +48,11 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Ball_Controller.cs" />
      <Compile Include="Assets\Scripts\Camera_Follow.cs" />
+     <Compile Include="Assets\Scripts\Game_Manager.cs" />
      <Compile Include="Assets\Scripts\Platform_Spawner.cs" />
+     <Compile Include="Assets\Scripts\Score_Manager.cs" />
      <Compile Include="Assets\Scripts\Trigger_Checker.cs" />
+     <Compile Include="Assets\Scripts\UI_Manager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

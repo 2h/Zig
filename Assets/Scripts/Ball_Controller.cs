@@ -2,6 +2,7 @@
 //12/02/2017
 //12:33
 //Whitesgate - Frontroom
+//GAME STARTS HERE
 
 using System.Collections;
 using System.Collections.Generic;
@@ -37,6 +38,14 @@ public class Ball_Controller : MonoBehaviour {
 			if (Input.GetMouseButton (0)) {
 				rb.velocity = new Vector3 (speed, 0, 0);
 				started = true;
+
+				////////////////////
+				////////////////////
+				/// GAME STARTS HERE
+				////////////////////
+	
+				Game_Manager.instance.GameStart ();
+
 			}
 		}
 
@@ -53,6 +62,13 @@ public class Ball_Controller : MonoBehaviour {
 
 			//Freeze the camera
 			Camera.main.GetComponent<Camera_Follow>().game_Over = true;
+
+			//////////////////
+			//////////////////
+			/// GAME ENDS HERE
+			//////////////////
+
+			Game_Manager.instance.GameOver ();
 		}
 
 		if (Input.GetMouseButtonDown (0) && !game_Over) {
